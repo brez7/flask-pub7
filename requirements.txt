@@ -1,0 +1,6 @@
+Flask==3.0.1
+Werkzeug>=2.0.0
+blinker
+click>=8.0
+itsdangerous>=2.0
+Jinja2>=3.0
