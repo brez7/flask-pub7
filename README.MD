@@ -33,4 +33,4 @@ gcloud auth configure-docker
 
 
 
-docker build -t gcr.io/upbeat-button-265722/rjb .; 
+docker build -t gcr.io/upbeat-button-265722/rjb .; docker push gcr.io/upbeat-button-265722/rjb; 
