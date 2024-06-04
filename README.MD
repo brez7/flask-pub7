@@ -1,8 +1,10 @@
  
 
 
-Browser Sync:
-browser-sync start --proxy "http://127.0.0.1:5000" --files "static/*, templates/**/*.html"
+ 
+
+browser-sync start --config bs-config.js
+
 
 Build Docker Image and Deploy to Cloud Run:
 
@@ -33,4 +35,4 @@ gcloud auth configure-docker
 
 
 
-docker build -t gcr.io/upbeat-button-265722/rjb .; docker push gcr.io/upbeat-button-265722/rjb; 
+docker build -t gcr.io/upbeat-button-265722/rjb .; docker push gcr.io/upbeat-button-265722/rjb; gcloud run deploy rjb --image gcr.io/upbeat-button-265722/rjb --platform managed --region us-central1 --allow-unauthenticated

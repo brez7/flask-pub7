@@ -1,0 +1,105 @@
+
+ 
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Animated Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+}
+
+.menu {
+    position: relative;
+    width: 200px;
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ff6347;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.menu-item:hover::before {
+    left: 0;
+}
+
+.menu-item:hover {
+    color: #000000;
+}
+</style>
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#" class="menu-item">Home</a></li>
+            <li><a href="#" class="menu-item">About</a></li>
+        </ul>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            gsap.to(item, {
+                duration: 0.3,
+                scale: 1.05,
+                backgroundColor: '#ddd',
+                color: '#ddd',
+                ease: 'power1.out',
+            });
+        });
+
+        item.addEventListener('mouseleave', () => {
+            gsap.to(item, {
+                duration: 0.3,
+                scale: 1,
+                backgroundColor: '#333',
+                color: '#ddd',
+                ease: 'power1.out',
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>
+
+{% endblock %}
